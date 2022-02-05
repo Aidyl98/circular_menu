@@ -149,24 +149,23 @@ class _Badge extends StatelessWidget {
           top: (topOffset == null && bottomOffset == null) ? 8 : topOffset,
           left: leftOffset,
           bottom: bottomOffset,
-          child: FittedBox(
-            child: GestureDetector(
-              onTap: onTap as void Function()? ?? () {},
-              child: CircleAvatar(
-                maxRadius: radius ?? 10,
-                minRadius: radius ?? 10,
-                backgroundColor: color ?? Theme.of(context).primaryColor,
-                child: FittedBox(
-                  child: Text(
-                    label ?? '',
-                    textAlign: TextAlign.center,
-                    style: textStyle ??
-                        TextStyle(
-                          fontSize: 10,
-                          color: textColor ?? Theme.of(context).accentColor,
-                        ),
-                  ),
-                ),
+          child: GestureDetector(
+            onTap: onTap as void Function()? ?? () {},
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: color ?? Theme.of(context).primaryColor,
+              ),
+              child: Text(
+                label ?? '',
+                textAlign: TextAlign.center,
+                style: textStyle ??
+                    TextStyle(
+                      fontSize: 10,
+                      color: textColor ?? Theme.of(context).accentColor,
+                    ),
               ),
             ),
           ),
